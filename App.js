@@ -9,6 +9,9 @@ import CorrecaoRefatometro from './components/CorrecaoRefatometro';
 import CalculadoraPriming from './components/CalculadoraPriming';
 import CorrecaoDensimetro from './components/CorrecaoDensimetro';
 import ConversaoGravidade from './components/ConversaoGravidade';
+import DiluicaoCerveja from './components/DiluicaoCerveja';
+import ConcentracaoFervura from './components/ConcentracaoFervura';
+import CorrecaoOGFermentavel from './components/CorrecaoOGFermentavel';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +27,9 @@ export default function App() {
         <Stack.Screen name="CalculadoraPriming" component={CalculadoraPriming} options={{ title: 'Calculadora de Priming' }} />
         <Stack.Screen name="CorrecaoDensimetro" component={CorrecaoDensimetro} options={{ title: 'Correção de Densímetro' }} />
         <Stack.Screen name="ConversaoGravidade" component={ConversaoGravidade} options={{ title: 'Conversão de Gravidade' }} />
+        <Stack.Screen name="DiluicaoCerveja" component={DiluicaoCerveja} options={{ title: 'Diluição da Cerveja Final' }} />
+        <Stack.Screen name="ConcentracaoFervura" component={ConcentracaoFervura} options={{ title: 'Concentração na Fervura' }} />
+        <Stack.Screen name="CorrecaoOGFermentavel" component={CorrecaoOGFermentavel} options={{ title: 'Correção da OG com Fermentável' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

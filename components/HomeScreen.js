@@ -40,6 +40,21 @@ export default function HomeScreen({ navigation }) {
             >
                 <Text style={styles.buttonText}>CONVERSÃO DE GRAVIDADE</Text>
             </Pressable>
+            <Pressable style={styles.button}
+                onPress={() => navigation.navigate('DiluicaoCerveja')}
+            >
+                <Text style={styles.buttonText}>DILUIÇÃO DA CERVEJA</Text>
+            </Pressable>
+            <Pressable style={styles.button}
+                onPress={() => navigation.navigate('ConcentracaoFervura')}
+            >
+                <Text style={styles.buttonText}>CONCENTRAÇÃO NA FERVURA</Text>
+            </Pressable>
+            <Pressable style={styles.button}
+                onPress={() => navigation.navigate('CorrecaoOGFermentavel')}
+            >
+                <Text style={styles.buttonText}>CORREÇÃO DA OG COM FERMENTÁVEL</Text>
+            </Pressable>
         </View>
     );
 }

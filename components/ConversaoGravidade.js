@@ -1,29 +1,60 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 
 export default function ConversaoGravidade() {
-  const [gravidade, setGravidade] = useState('');
-  const [plato, setPlato] = useState(null);
+  const [brix, setBrix] = useState('');
+  const [sd, setSd] = useState(null);
 
-  const converterGravidade = () => {
-    const platoResult = ((parseFloat(gravidade) - 1) * 1000 / 4).toFixed(2);
-    setPlato(platoResult);
+  const converterBrixParaSd = () => {
+    const sdValue = parseFloat(brix) * 10; // Aproximação comum para Brix para g/L SD
+    setSd(sdValue.toFixed(2));
   };
 
   return (
-    <View style={{ padding: 20 }}>
-      <Text>Conversão de Gravidade para °Plato</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Conversão de Brix para g/L de SD</Text>
       <TextInput
-        placeholder="Digite a gravidade específica"
+        style={styles.input}
+        placeholder="Digite o valor em Brix"
         keyboardType="numeric"
-        value={gravidade}
-        onChangeText={setGravidade}
-        style={{ borderColor: 'gray', borderWidth: 1, marginBottom: 20 }}
+        value={brix}
+        onChangeText={setBrix}
       />
-      <Button title="Converter" onPress={converterGravidade} />
-      {plato && (
-        <Text style={{ marginTop: 20 }}>Resultado: {plato} °Plato</Text>
+      <Button  title="Converter" onPress={converterBrixParaSd}/>
+      {sd && (
+        <Text style={styles.result}>Resultado: {sd} g/L de SD</Text>
       )}
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'center',
+    backgroundColor: '#f5f5f5',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  input: {
+    height: 50,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 20,
+    paddingHorizontal: 10,
+    fontSize: 18,
+  },
+  result: {
+    marginTop: 20,
+    fontSize: 22,
+    textAlign: 'center',
+    color: '#333',
+  },
+  
+});
